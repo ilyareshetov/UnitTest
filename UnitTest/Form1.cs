@@ -22,5 +22,19 @@ namespace UnitTest
             StringFormatter obj = new StringFormatter();
             textBox2.Text = obj.WebString(textBox1.Text);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int[] a;
+            a = new int[10] { 3, 1, -2, 5, 4, -2, 1, 7, -1, -1 };
+
+            ArrayProcessor obj = new ArrayProcessor();
+            a = obj.SortAndFilter(a);
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                listBox2.Items.Insert(i, a[i]);
+            }
+        }
     }
 }
