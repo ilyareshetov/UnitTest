@@ -16,5 +16,11 @@ namespace UnitTest
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StringFormatter obj = new StringFormatter();
+            textBox2.Text = obj.WebString(textBox1.Text);
+        }
     }
 }
