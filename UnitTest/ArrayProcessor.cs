@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTest
 {
-    class ArrayProcessor
+    public class ArrayProcessor
     {
         public int[] SortAndFilter(int[] a)
         {

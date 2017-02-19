@@ -5,7 +5,7 @@ using UnitTest;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest1 //тесты для StringFormatter
     {
         StringFormatter _setstring = new StringFormatter();
 
@@ -48,5 +48,28 @@ namespace UnitTestProject1
 
             Assert.AreEqual(res, "https://secure.google.ru");
         }
+
+        [TestMethod]
+        public void TestNoshttpStrings()
+        {
+            string res = _setstring.WebString("http://secure.google.ru");
+
+            Assert.AreEqual(res, "https://secure.google.ru");
+        }
     }
+
+        [TestClass]
+        public class UnitTest2 //тесты для ArrayProcessor
+    {
+        ArrayProcessor _setstring = new ArrayProcessor();
+
+        [TestMethod]
+        public void TestWebStrings()
+        {
+         //   string res = _setstring.WebString("google.ru");
+
+          //  Assert.AreEqual(res, "http://google.ru");
+        }
+    }
+    
 }
