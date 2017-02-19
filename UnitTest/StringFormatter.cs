@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTest
 {
-    class StringFormatter
+     public class StringFormatter
     {
         public string WebString(string s)
         {
