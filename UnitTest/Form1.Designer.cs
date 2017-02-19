@@ -75,9 +75,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(274, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 13);
+            this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Write int array (1 number per line)";
+            this.label2.Text = "Click this button";
             // 
             // listBox2
             // 
