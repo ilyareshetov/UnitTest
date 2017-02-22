@@ -26,7 +26,8 @@ namespace UnitTest
         private void button2_Click(object sender, EventArgs e)
         {
             int[] a;
-            a = new int[10] { 3, 1, -2, 5, 4, -2, 1, 7, -1, -1 };
+            //a = new int[] { 3, 1, -2, 5, 4, -2, 1, 7, -1, -1 };
+            a = new int[] { -4, -4, -4, -3, -5, -3, 2, 1, 4, 7, 5, 6, 8, 9 };
 
             ArrayProcessor obj = new ArrayProcessor();
             a = obj.SortAndFilter(a);

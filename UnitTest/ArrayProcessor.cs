@@ -10,18 +10,18 @@ namespace UnitTest
     {
         public int[] SortAndFilter(int[] a)
         {
-            int[] b;
-            b = new int[a.Length];
-            int j = 0;
             Array.Sort(a);
+            
+            List<int> minus = new List<int>();
+            List<int> plus = new List<int>();
             for (int i = 0; i < a.Length; i++)
             {
-                if ((a[i] < 0) && (a[i] == a[i+1]) || (a[i]>=0)) {
-                    b[j] = a[i];
-                    j++;
-                }
-            }
-            Array.Resize(ref b, j);
+                if (a[i] < 0) minus.Add(a[i]);
+                else plus.Add(a[i]);
+            }    
+
+            int[] b = minus.Distinct().Concat(plus).ToArray();
+
             return b;
         }
     }
