@@ -60,16 +60,16 @@ namespace UnitTestProject1
 
         [TestClass]
         public class UnitTest2 //тесты для ArrayProcessor
-    {
-        ArrayProcessor _setstring = new ArrayProcessor();
+        {
+        ArrayProcessor _setarray = new ArrayProcessor();
 
         [TestMethod]
-        public void TestWebStrings()
-        {
-         //   string res = _setstring.WebString("google.ru");
-
-          //  Assert.AreEqual(res, "http://google.ru");
+        public void TestArraySetNum()
+        { 
+            var res_arr = _setarray.SortAndFilter(new int[] {-4, -4, -4, -3, -5, -3, 2, 1, 4, 7, 5, 6, 8, 9});
+            int[] b;
+            b = new int[] {-5, -4, -3, 1, 2, 4, 5, 6, 7, 8, 9};
+            CollectionAssert.AreEqual(res_arr, b);
         }
     }
-    
 }
