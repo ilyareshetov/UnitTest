@@ -66,9 +66,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestArraySetNum()
         { 
-            var res_arr = _setarray.SortAndFilter(new int[] {-4, -4, -4, -3, -5, -3, 2, 1, 4, 7, 5, 6, 8, 9});
+            var res_arr = _setarray.SortAndFilter(new int[] {-4, -4, 0, -3, -5, -3, 2, 1, 4, 7, 5, 6, 8, 9, 9});
             int[] b;
-            b = new int[] {-5, -4, -3, 1, 2, 4, 5, 6, 7, 8, 9};
+            b = new int[] {-5, -4, -3, 0, 1, 2, 4, 5, 6, 7, 8, 9, 9};
             CollectionAssert.AreEqual(res_arr, b);
         }
     }
