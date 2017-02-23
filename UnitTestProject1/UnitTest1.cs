@@ -58,18 +58,78 @@ namespace UnitTestProject1
         }
     }
 
-        [TestClass]
-        public class UnitTest2 //тесты для ArrayProcessor
-        {
+    [TestClass]
+    public class UnitTest2 //тесты для ArrayProcessor
+    {
         ArrayProcessor _setarray = new ArrayProcessor();
 
         [TestMethod]
-        public void TestArraySetNum()
-        { 
-            var res_arr = _setarray.SortAndFilter(new int[] {-4, -4, 0, -3, -5, -3, 2, 1, 4, 7, 5, 6, 8, 9, 9});
+        public void TestArraysortanddel()
+        {
+            var res_arr = _setarray.SortAndFilter(new int[] { -4, -4, 0, -3, -5, -3, 2, 1, 4, 7, 5, 6, 8, 9, 9 });
             int[] b;
-            b = new int[] {-5, -4, -3, 0, 1, 2, 4, 5, 6, 7, 8, 9, 9};
+            b = new int[] { -5, -4, -3, 0, 1, 2, 4, 5, 6, 7, 8, 9, 9 };
             CollectionAssert.AreEqual(res_arr, b);
+        }
+
+        [TestMethod]
+        public void TestArraysort()
+        {
+            var res_arr = _setarray.SortAndFilter(new int[] {-5, -7, -3, 9, 4, 7, 2, 5, 8});
+            int[] b;
+            b = new int[] {-7, -5, -3, 2, 4, 5, 7, 8, 9};
+            CollectionAssert.AreEqual(res_arr, b);
+        }
+
+        [TestMethod]
+        public void TestArraydelsamenegative()
+        {
+            var res_arr = _setarray.SortAndFilter(new int[] { -5, -5, -5, -3, -3, -1, -1, -1, 0, 3, 5 });
+            int[] b;
+            b = new int[] {-5, -3, -1, 0, 3, 5};
+            CollectionAssert.AreEqual(res_arr, b);
+        }
+    }
+
+    [TestClass]
+    public class UnitTest3 //тесты для LinearEquationsSystem
+    {
+        LinearEquationsSystem _setcoeffs = new LinearEquationsSystem();
+        
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void TestSetWrongCoeffs()
+        {
+            double[,] coeffs;
+            coeffs = new double[,] { { 1, 2, 4, 5 }, { 5, 1, 2, 5 }, { 3, -1, 1, 6 }, { 3, -1, 1, 6 } };
+            _setcoeffs.SetCoefficients(coeffs);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestSetNullDeterm()
+        {
+            double[,] coeffs;
+            coeffs = new double[,] { { 4, 0 }, { 4, 0 }};
+            _setcoeffs.SetCoefficients(coeffs);
+
+        }
+
+        [TestMethod]
+        public void TestSetMatrix()
+        {
+            double[,] coeffs;
+            double[] b;
+
+            coeffs = new double[,] { { 2, 3 }, { 4, 2 } };
+            double[] sec_free = new double[2] { -5, -7 };
+
+            _setcoeffs.SetCoefficients(coeffs);
+            double[] res = _setcoeffs.Solve(sec_free, 2);
+            
+            b = new double[] { -1.375, -0.75, 0 };
+
+            CollectionAssert.AreEqual(res, b);
         }
     }
 }

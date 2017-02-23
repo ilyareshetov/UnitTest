@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UnitTest
 {
-    class LinearEquationsSystem
+    public class LinearEquationsSystem
     {
         double[,] my_coeffs;
 
