@@ -127,7 +127,7 @@ namespace UnitTestProject1
             _setcoeffs.SetCoefficients(coeffs);
             double[] res = _setcoeffs.Solve(sec_free, 2);
             
-            b = new double[] { -1.375, -0.75, 0 };
+            b = new double[] { -1.375, -0.75 };
 
             CollectionAssert.AreEqual(res, b);
         }

@@ -13,8 +13,12 @@ namespace UnitTest
         public double[] Solve(double[] free, int n)
         {
             double s = 0;
-            double[] res;
-            res = new double[3] { 0, 0, 0 };
+            List<double> res = new List<double>(n);
+            for (int i = 0; i < n; i++)
+            {
+                res.Add(0);
+            }
+
             for (int k = 0; k < n - 1; k++)
             {
                 for (int i = k + 1; i < n; i++)
@@ -34,9 +38,9 @@ namespace UnitTest
                 res[k] = (free[k] - s) / my_coeffs[k, k];
             }
 
+            double[] otvet = res.ToArray();
 
-
-            return res;
+            return otvet;
         }
 
         public void SetCoefficients(double[,] coeffs)
