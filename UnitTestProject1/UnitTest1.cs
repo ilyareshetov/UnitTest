@@ -116,7 +116,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestSetMatrix()
+        public void TestSetMatrix2х2()
         {
             double[,] coeffs;
             double[] b;
@@ -128,6 +128,23 @@ namespace UnitTestProject1
             double[] res = _setcoeffs.Solve(sec_free, 2);
             
             b = new double[] { -1.375, -0.75, 0 };
+
+            CollectionAssert.AreEqual(res, b);
+        }
+
+        [TestMethod]
+        public void TestSetMatrix3х3()
+        {
+            double[,] coeffs;
+            double[] b;
+
+            coeffs = new double[,] { { 4, 8, 6 }, { 2, 6, -5 }, { 3, 5, 9 } };
+            double[] third_free = new double[3] { 3, 8, 6 };
+
+            _setcoeffs.SetCoefficients(coeffs);
+            double[] res = _setcoeffs.Solve(third_free, 3);
+
+            b = new double[] { -138.75, 59.25, 14 };
 
             CollectionAssert.AreEqual(res, b);
         }
