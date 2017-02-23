@@ -41,7 +41,7 @@ namespace UnitTest
         private void button3_Click(object sender, EventArgs e)
         {
             double[,] sec, third;
-            sec = new double[,] { { 1, -1 }, { 2, 1 } };
+            sec = new double[,] { { 2, 3 }, { 4, 2 } };
             third = new double[,] { { 1, 2, 4 }, { 5, 1, 2 }, { 3, -1, 1 } };
             double[] res;
             double[] sec_free = new double[2] { -5, -7 };
@@ -49,8 +49,8 @@ namespace UnitTest
 
 
             LinearEquationsSystem obj = new LinearEquationsSystem();
-            obj.SetCoefficients(third);
-            res = obj.Solve(third_free, 3);
+            obj.SetCoefficients(sec);
+            res = obj.Solve(sec_free, 2);
 
             for (int i = 0; i < res.Length; i++)
             {
